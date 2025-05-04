@@ -1,7 +1,8 @@
 const { Telegraf } = require('telegraf');
 const cron = require('node-cron');
 
-const BOT_TOKEN = 'YOUR_BOT_TOKEN'; // сюда вставь токен
+const BOT_TOKEN = process.env.BOT_TOKEN;
+if (!BOT_TOKEN) throw new Error('BOT_TOKEN не задан!');
 const bot = new Telegraf(BOT_TOKEN);
 
 // Храним ID групп, куда был добавлен бот
